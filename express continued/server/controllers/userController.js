@@ -35,7 +35,7 @@ const creatAUser = async (req,res)=>{
     newObj.save().then((res)=>{
         res.status(201).json({"message":"document created successfully!"});
     }).catch((err)=>{
-        res.status(500).json({"message":JSON.stringify(e)});
+        res.status(500).json({"message":JSON.stringify(err)});
     })
 
     // try{
