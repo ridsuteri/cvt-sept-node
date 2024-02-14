@@ -1,9 +1,11 @@
 const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const verifyToken = (req, res, next)=>{
     const token = req.header('Authorization');
     if(token){
-        const decodedToken = jwt.verify(token, 'superSecret@321');
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
     
         if(decodedToken){
             next();
